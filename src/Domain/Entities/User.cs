@@ -5,7 +5,7 @@ namespace App.Domain.Entities;
 
 using App.Domain.Shared;
 
-public class User: Entity, IAudit
+public class User: Audit, IAudit
 {
     public virtual Name Name { get; private set; } 
     public Email Email { get; private set; } 
@@ -14,8 +14,6 @@ public class User: Entity, IAudit
     public virtual Address? ShippingAddress { get; set; }
 
     public string Password { get; private set; } 
-    public DateTime CreatedAt { get; private set; }
-    public DateTime UpdatedAt { get; private set; }
 
     protected User()
     {
@@ -26,7 +24,5 @@ public class User: Entity, IAudit
         Name = name;
         Email = email;
         Password = password;
-        CreatedAt = DateTime.UtcNow;
-        UpdatedAt = DateTime.UtcNow;
     }
 }

@@ -1,6 +1,7 @@
 
 
 
+using System.ComponentModel.DataAnnotations;
 using App.Domain.Shared;
 using LanguageExt.UnsafeValueAccess;
 
@@ -16,7 +17,7 @@ public class Order : Entity, IAudit, ISoftDelete
     public DateTime CreatedAt { get; private set; }
     public DateTime UpdatedAt { get; private set; }
     public bool IsDeleted { get; private set; }
-
+    
     protected Order()
     {
     }
