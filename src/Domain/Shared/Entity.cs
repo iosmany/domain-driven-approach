@@ -1,15 +1,8 @@
-using System;
-using System.Collections.Generic;
 
 namespace App.Domain.Shared;
 
-
-using App.Domain.Services;
 public abstract class Entity
 {
-    private readonly List<IDomainEvent> _domainEvents = new List<IDomainEvent>();
-    public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents;
-
     public long Id { get; }
     protected Entity()
     {
@@ -18,17 +11,7 @@ public abstract class Entity
     {
         Id = id;
     }
-
-    protected void RaiseDomainEvent(IDomainEvent domainEvent)
-    {
-        _domainEvents.Add(domainEvent);
-    }
-
-    public void ClearDomainEvents()
-    {
-        _domainEvents.Clear();
-    }
-
+   
     public override bool Equals(object obj)
     {
         if (!(obj is Entity other))

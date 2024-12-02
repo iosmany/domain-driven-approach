@@ -10,6 +10,8 @@ public class Money: ValueObject
 
     protected Money()
     {
+        Currency = Currency.USD;
+        Amount = 0;
     }
 
     private Money(Currency currency, decimal amount)

@@ -1,4 +1,4 @@
-﻿namespace App.Domain.Services
+﻿namespace App.Domain.Shared 
 {
     public interface IDomainEvent
     {

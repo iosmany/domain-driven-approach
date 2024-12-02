@@ -17,6 +17,7 @@ public class User: Audit, IAudit
 
     protected User()
     {
+        
     }
 
     public User(Name name, Email email, string password) : this()

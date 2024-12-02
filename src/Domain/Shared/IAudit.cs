@@ -22,3 +22,19 @@ public class Audit : Entity
         UpdatedAt = updatedAt;
     }
 }
+
+public class AuditAggregateRoot : AggregateRoot, IAudit
+{
+    public DateTime CreatedAt { get; private set; }
+    public DateTime UpdatedAt { get; private set; }
+
+    protected AuditAggregateRoot()
+    {
+    }
+    
+    public AuditAggregateRoot(DateTime createdAt, DateTime updatedAt)
+    {
+        CreatedAt = createdAt;
+        UpdatedAt = updatedAt;
+    }
+}

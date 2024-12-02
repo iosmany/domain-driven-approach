@@ -11,6 +11,9 @@ public class Name : ValueObject
 
     protected Name()
     {
+        FirstName = string.Empty;
+        LastName = string.Empty;
+        Suffix = Suffix.None;
     }
 
     private Name(string firstName, string? lastName, Suffix suffix)

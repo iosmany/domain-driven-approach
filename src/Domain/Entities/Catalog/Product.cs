@@ -8,7 +8,7 @@ namespace App.Domain.Entities;
 public class Product : Audit, ISoftDelete
 {
     public string Name { get; private set; }
-    public virtual ProductPrice Price { get; private set; }
+    public virtual PriceAmount Price { get; private set; }
     public bool IsDeleted { get; private set; }
 
 
@@ -16,7 +16,7 @@ public class Product : Audit, ISoftDelete
     {
     }
 
-    public Product(string name, ProductPrice price) : this()
+    public Product(string name, PriceAmount price) : this()
     {
         Name = name;
         Price = price;

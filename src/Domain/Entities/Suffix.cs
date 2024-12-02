@@ -6,6 +6,7 @@ using Domain.Shared;
 
 public class Suffix : Entity
 {
+    public static readonly Suffix None = new Suffix(0, string.Empty);
     public static readonly Suffix Jr = new Suffix(1, "Jr");
     public static readonly Suffix Sr = new Suffix(2, "Sr");
     public static readonly Suffix[] AllSuffixes = { Jr, Sr };

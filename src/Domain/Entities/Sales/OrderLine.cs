@@ -1,20 +1,15 @@
 
 namespace App.Domain.Entities;
 
-using System.ComponentModel.DataAnnotations;
 using App.Domain.Shared;
-using LanguageExt.UnsafeValueAccess;
 
-public class OrderLine : Audit, ISoftDelete
+public class OrderLine : AuditAggregateRoot, ISoftDelete
 {
     public virtual Product Product { get; private set; }
     public int Quantity { get; private set; }
-    public virtual ProductPrice Price { get; private set; }
+    public virtual PriceAmount Price { get; private set; }
     public Money Total { get; private set; }
     public bool IsDeleted { get; private set; }
-
-    [ConcurrencyCheck]
-    public byte[] RowVersion { get; private set; }
 
     protected OrderLine()
     {

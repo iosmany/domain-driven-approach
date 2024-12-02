@@ -1,28 +1,20 @@
-
-
-
-using System.ComponentModel.DataAnnotations;
 using App.Domain.Shared;
-using LanguageExt.UnsafeValueAccess;
 
 namespace App.Domain.Entities;
-public class Order : Entity, IAudit, ISoftDelete
+public class Order : AuditAggregateRoot, ISoftDelete
 {
     public virtual User User { get; private set; }
     public virtual Address InvoiceAddress { get; private set; }
     public virtual Address ShippingAddress { get; private set; }
     public int Quantity { get; private set; }
     public Money Total { get; private set; }
-
-    public DateTime CreatedAt { get; private set; }
-    public DateTime UpdatedAt { get; private set; }
     public bool IsDeleted { get; private set; }
     
-    protected Order()
+    protected Order() : base()
     {
     }
 
-    public Order(User user, int quantity, Money total) : this()
+    public Order(User user, int quantity, Money total)
     {
         User = user;
         Quantity = quantity;
@@ -48,10 +40,6 @@ public class Order : Entity, IAudit, ISoftDelete
             Left: ex => throw new Exception(ex.Message)
         );
 
-        CreatedAt = DateTime.UtcNow;
-        UpdatedAt = DateTime.UtcNow;
-
         Total = total;
-
     }
 }

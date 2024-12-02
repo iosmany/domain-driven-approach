@@ -15,6 +15,9 @@ public class Address: ValueObject
 
     protected Address()
     {
+        Street = string.Empty;
+        Country = string.Empty;
+        ZipCode = string.Empty;
     }
 
     private Address(string street, string? city, string? state, string country, string zipCode, string? phone)
